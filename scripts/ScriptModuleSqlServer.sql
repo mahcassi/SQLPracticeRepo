@@ -39,7 +39,7 @@ LEFT JOIN TELEFONE ON TELEFONE.ID_ALUNO = ALUNO.IDALUNO
 SELECT GETDATE()
 GO
 
-/*	Clasula ambigua (quando faço um join e tenho colunos iguals em mais de uma tabela) */
+/*	Clasula ambigua (quando faÃ§o um join e tenho colunos iguals em mais de uma tabela) */
 SELECT A.NOME, T.TIPO, T.NUMERO, E.BAIRRO, E.UF
 FROM ALUNO A LEFT JOIN TELEFONE T
 ON A.IDALUNO = T.ID_ALUNO
@@ -64,7 +64,7 @@ GO
 
 /* trabalhando com datas */
 
-/* DATEDIFF - CALCULA A DIFERENÇA ENTRE 2 DATAS */
+/* DATEDIFF - CALCULA A DIFERENÃ‡A ENTRE 2 DATAS */
 SELECT NOME, GETDATE()  AS DATA_ATUAL FROM ALUNO
 
 SELECT NOME, DATEDIFF(DAY, NASCIMENTO, GETDATE()) AS IDADE
@@ -87,7 +87,7 @@ FROM ALUNO
 GO
 
 
-/* datename - TRAZ O NOME DA PARTE DA DATA EM QUESTÃO */
+/* datename - TRAZ O NOME DA PARTE DA DATA EM QUESTÃƒO */
 SELECT NOME, DATENAME(MONTH, NASCIMENTO)
 FROM ALUNO
 GO
@@ -181,9 +181,9 @@ CHARINDEX('C', DEB_CRED) * 2 - 1 AS MULTIPLICADOR
 INSERT INTO PRODUTOS VALUES('Livro Oracle', 'Livros', 98.00)
 INSERT INTO PRODUTOS VALUES('Livro: "Clean Code"', 'Livros', 79.90)
 INSERT INTO PRODUTOS VALUES('Curso Online: "Python for Beginners"', 'Cursos', 129.00)
-INSERT INTO PRODUTOS VALUES('Notebook HP EliteBook', 'Eletrônicos', 3899.00)
-INSERT INTO PRODUTOS VALUES('Teclado Mecânico RGB', 'Acessórios de Computador', 149.99)
-INSERT INTO PRODUTOS VALUES('Mouse Gamer com Sensor Óptico', 'Acessórios de Computador', 79.90)
+INSERT INTO PRODUTOS VALUES('Notebook HP EliteBook', 'EletrÃ´nicos', 3899.00)
+INSERT INTO PRODUTOS VALUES('Teclado MecÃ¢nico RGB', 'AcessÃ³rios de Computador', 149.99)
+INSERT INTO PRODUTOS VALUES('Mouse Gamer com Sensor Ã“ptico', 'AcessÃ³rios de Computador', 79.90)
 INSERT INTO PRODUTOS VALUES('Kit Raspberry Pi 4', 'Placas e Componentes', 249.50)
 GO
 
@@ -375,5 +375,3 @@ GO
 
 UPDATE EMPREGADO SET SALARIO = SALARIO * 1.2
 GO
-
-use 
