@@ -376,3 +376,50 @@ SELECT * FROM RELATORIO_LOCADORA;
 DELETE FROM LOCACAO WHERE IDLOCACAO = 1;
 
 
+
+/* Variaveis Dummy para Machine Learning */
+/*
+	Variável Dummy é aquela que toma o valor de "zero" ou "um" indicando a ausência 
+	ou presença de qualidades ou atributos. Essas variáveis são usadas como dispositivos
+	para classificar dados em categorias mutuamente exclusivas.
+*/
+
+/* Utilizando Case */
+
+SELECT NOME, SEXO FROM FUNCIONARIOS;
+
+SELECT CARGO FROM FUNCIONARIOS
+
+SELECT NOME, CARGO,
+CASE
+	WHEN CARGO = 'Financial Advisor' THEN 'Condicao 01'
+	WHEN CARGO = 'Structural Engineer' THEN 'Condicao 02'
+	WHEN CARGO = 'Executive Secretary' THEN 'Condicao 03'
+	WHEN CARGO = 'Sales Associative' THEN 'Condicao 04'
+	ELSE 'OUTRAS CONDICOES'
+END AS "CONDICOES"
+FROM FUNCIONARIOS;
+
+SELECT NOME,
+CASE
+	WHEN SEXO = 'Masculino' THEN 'M'
+	ELSE 'F'
+END AS "SEXO"
+FROM FUNCIONARIOS;
+
+/* utlizandos valores booleanos */
+SELECT NOME, CARGO, (SEXO = 'Masculino') AS Masculino, (SEXO = 'Feminino') as Feminino
+FROM FUNCIONARIOS;
+
+/* Mesclando técnicas */
+SELECT NOME, CARGO,
+CASE 
+	WHEN (SEXO = 'Masculino') = true THEN 1
+	ELSE 0
+END AS "MASCULINO",
+CASE 
+	WHEN (SEXO = 'Feminino') = true THEN 1
+	ELSE 0
+END AS "FEMININO"
+FROM FUNCIONARIOS;
+
