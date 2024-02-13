@@ -175,4 +175,61 @@ SELECT MAQUINA,
 		GROUP BY MAQUINA
 		ORDER BY 1;
 	
+	
+	
+	
+	
+	
+
+/* Exercicios */
+
+SELECT * FROM DEPARTAMENTOS;
+SELECT * FROM FUNCIONARIOS;
+
+/* Qual a moda dos salarios. A moda dos salários diz algo de relevante? */
+SELECT SALARIO, COUNT(*) AS MODA FROM FUNCIONARIOS GROUP BY SALARIO
+ORDER BY 2 DESC;
+/* Poucos salários se repetem */
+
+/* Qual a moda departamental = Quall o departamento que mais emprega? */
+SELECT DEPARTAMENTO, COUNT(*) AS MODA FROM FUNCIONARIOS GROUP BY DEPARTAMENTO
+ORDER BY 2 DESC;
+/* Departamento de computadores é o que mais emprega*/
+
+
+/* Qual o desvio padrão de cada departamento? */
+SELECT DEPARTAMENTO, ROUND(STDDEV_POP(SALARIO), 2) AS DESV_PAD FROM FUNCIONARIOS GROUP BY DEPARTAMENTO
+ORDER BY 2 DESC;
+
+/* Calcule a mediana salarial de todo o set de dados */
+SELECT ROUND(MEDIAN(SALARIO), 2) AS MEDIANA FROM FUNCIONARIOS;
+
+/* Qual a amplitude de todos os salarios? */
+SELECT 	MIN(SALARIO) AS "MINIMO",
+		MAX(SALARIO) AS "MAXIMO",
+		MAX(SALARIO) - MIN(SALARIO) AS "AMPLITUDE"
+		FROM FUNCIONARIOS;
+
+/* Calcule as principais medidas estatisicas por departamento */
+SELECT DEPARTAMENTO,
+  		COUNT(SALARIO) AS "QUANTIDADE",
+		SUM(SALARIO) AS "SALARIOS TOTAL",
+		ROUND(AVG(SALARIO), 2) AS "MEDIA",
+		MAX(SALARIO) AS "MAXIMO",
+		MIN(SALARIO) AS "MINIMO",
+		MAX(SALARIO) - MIN(SALARIO) AS "AMPLIT. TOTAL",
+		ROUND(VAR_POP(SALARIO), 2) AS "VARIANCIA",
+		ROUND(STDDEV_POP(SALARIO), 2) AS "DESV. PADRAO",
+		ROUND(MEDIAN(SALARIO), 2) AS "MEDIANA",
+		ROUND((STDDEV_POP(SALARIO) / AVG(SALARIO)) * 100, 2) AS "COEF VARIACAO",
+		MODE() WITHIN GROUP(ORDER BY SALARIO) AS "MODA"
+		FROM FUNCIONARIOS
+		GROUP BY DEPARTAMENTO
+		ORDER BY 9 ASC;
+		
+		
+
+
+/* Qual departamento te da uma maior probabilidade de ganhar mais */
+/* Departamento outdoor tem a menor variancia/desv padrão dentre todos os departamentos*/
 		
